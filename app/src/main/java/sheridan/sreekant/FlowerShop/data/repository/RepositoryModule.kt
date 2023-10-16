@@ -10,6 +10,6 @@ import dagger.hilt.components.SingletonComponent
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun flowerDataRepository(repository: FakeFlowerDataRepository): FlowerDataRepository
+    abstract fun flowerDataRepository(repository: FlowerDataRepositoryImpl): FlowerDataRepository
 
 }

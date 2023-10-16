@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import sheridan.sreekant.FlowerShop.R
 import sheridan.sreekant.FlowerShop.domain.Flower
+import sheridan.sreekant.FlowerShop.data.remote.imageFolder
 import coil.compose.AsyncImage
 
 @Composable
@@ -47,23 +48,24 @@ fun FlowerListItem(flower: Flower) {
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
-    ){
+    ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             modifier = Modifier.padding(16.dp)
-        ){
-            AsyncImage(model = "file:///android_asset/images/${flower.image}",
+        ) {
+            AsyncImage(
+                model = imageFolder + flower.image,
                 contentDescription = "${flower.description} ${flower.name}"
             )
             Column(
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxWidth()
-            ){
+            ) {
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ){
+                ) {
                     Text(
                         text = flower.description.capitalize(Locale.current),
                         fontSize = 28.sp
@@ -74,7 +76,7 @@ fun FlowerListItem(flower: Flower) {
                     )
                 }
                 Text(
-                    text = flower.price,
+                    text = pluralStringResource(id = R.plurals.prices, flower.price.toInt(), flower.price),
                     fontSize = 24.sp
                 )
             }

@@ -6,6 +6,10 @@
     <string name="list_title">Flower List</string>
 
     <!-- Flower List -->
+    <plurals name="prices">
+        <item quantity="one">%d</item>
+        <item quantity="other">%d</item>
+    </plurals>
 
     <!-- Loading and Error -->
     <string name="loading_error">Loading Error</string>

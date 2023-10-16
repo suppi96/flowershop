@@ -70,6 +70,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44.2")
     kapt("com.google.dagger:hilt-android-compiler:2.44.2")
 
+    // need to receive remote data
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
 
     testImplementation("junit:junit:4.13.2")
@@ -79,4 +81,8 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+kapt {
+    correctErrorTypes = true
 }
